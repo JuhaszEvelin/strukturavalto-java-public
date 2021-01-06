@@ -1,4 +1,4 @@
-package cv;
+package lottoszamok;
 
 import java.io.InputStream;
 
