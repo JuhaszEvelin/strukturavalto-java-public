@@ -340,3 +340,59 @@ Egy repülőgéppel átszeljük az óceánt és a közben méréseket végzünk.
 pl.: 111000010100001  sorozatban egy három "hosszú" sziget majd négy hosszú "óceán", aztán sziget, víz, sziget, majd óceán és végül egy szigeten leszálltunk. A map.txt állományban egy "térképet" tárolunk. A feladat az, hogy "repüljünk" a térkép fölött végig és határozzuk meg a leghosszabb óceán szakasz hosszát.
 A térkép fölött csak egyszer repülhetünk el és amikor leszálltunk már tudnunk is kell az eredményt. (Magyarul ne olvasd be a file-t a memóriába) A feladatot a week08d05.Plane osztályba végezzük el.
 A térkép: 10000000111110000000000001111111111000010000010000100000111111110000101000000000111110000000000000000100000001000000000000111111000000000100000000000011
+
+
+# 2020-12-23
+
+## Junior-Senior
+A  mai feladatban Mikulásnak segítünk ajándékokat kiosztani. A `week09d03` csomagba  dolgozz. Készíts egy `Present` nevű enumot a következő felsorolókkal: `Toy`, `Electronic`, `Housekepping`, `Decoration`. Ezek fogják az ajándékok típusát reprezentálni. Készíts egy `Person` osztályt legyen neki neve és életkora és legyen egy Present típusú attribútuma. A nevet és életkort konstruktorban kapja meg. Legyen egy `setPresent()` metódusa ami beállítja az ajándék attribútumot véletlenszerűen, egy kitétel van, 14 év fölötti nem kaphat játékot. Ennek megvalósításához szabadon bővíthetőek az eddig elkészült elemek. Legyen egy `SantaClaus` osztály, akinek van egy `Person` listája, amit konstruktorban kap meg. Legyen neki egy `getThroughChimneys()` metódusa, ami végigmegy az emberek listáján és meghívja minden ember `setPresent()` metódusát. 
+
+# 2021-01-04
+
+## Junior
+
+Túrázás közben egy GPS eszköz rögzíti a pontokat. Eltárolja a GPS koordinátákat, valamint a magasságot (mindegyik lebegőpontos érték).
+Írj a `week10d01.Hiking` osztályba egy `getPlusElevation()` metódust, mely megkapja a magasságok listáját, és visszaadja
+a emelkedések összegét. Azaz pl. `10,20,15,18` esetén `13`, ugyanis `(20 - 10) + (18 - 15)`. A `20` méterről `15` méterre ereszkedést nem számolja bele,
+hiszen az ereszkedés, és nem emelkedés.
+
+## Senior
+
+Túrázás közben egy GPS eszköz rögzíti a pontokat. Eltárolja a GPS koordinátákat, valamint a magasságot (mindegyik lebegőpontos érték).
+Ezt egy fájlba tárolja, melynek formátuma:
+
+```
+47.497913, 19.040236, 400
+47.497912, 19.040232, 420
+47.497916, 19.040236, 410
+```
+
+Írj a `week10d01.HikingFile` osztályba egy `getPlusElevation()` metódust, mely kap egy `InputStream`-et, és visszaadja
+külön az ereszkedések, és külön az emelkedések összegét. Azaz pl. `10,20,15,18` esetén az emelkedés `13`, ugyanis `(20 - 10) + (18 - 15)`. 
+A `20` méterről `15` méterre ereszkedést pedig `5`.
+
+# 2021-01-05
+
+## Junior
+
+Van egy egész számok listája, amelyben egy szám azt jelzi, hogy az adott számú buszmegállóban egy ember fel akar szállni. A `12,12,0,3,4,4` sorozat tehát azt jelenti, hogy a 12-es buszmegállóban 2-en, a 0-ásban 1 ember, 3-asban egy ember, 4-esben 2 ember akar felszállni. A `MaxTravel` osztály `getMaxIndex()` metódusa adja vissza, hogy hanyas megállóban szeretnének a legtöbben felszálln! Maximum 30 megálló lehet.
+
+Leegyszerűsítve a feladat az, hogy a paraméterként átadott tömbben keresse meg, hogy melyik szám szerepel a legtöbbször.
+
+
+## Senior
+
+Adott egy fájl, `utasadat.txt`, mely a következőket tartalmazza:
+
+```
+0 20190326-0700 6572582 RVS 20210101
+0 20190326-0700 8808290 JGY 7
+0 20190326-0700 1680423 TAB 20190420
+12 20190326-0716 3134404 FEB 20190301
+12 20190326-0716 9529716 JGY 0
+```
+
+Egy sor egy felszálló adatait tárolja.
+Egy sorban a megálló száma az első oszlop. Írj egy `Travel.getStopWithMax(InputStream)` metódust, mely
+visszaadja, hogy melyik megállóban szerettek volna a legtöbben
+felszállni! Maximum 30 megálló lehet.
