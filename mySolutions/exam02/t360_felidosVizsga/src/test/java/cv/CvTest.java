@@ -24,7 +24,7 @@ public class CvTest {
     }
 
     @Test
-    public void testFindSkill() {
+    public void testFindSkill() throws SkillNotFoundException {
         Cv cv = new Cv("John Doe");
         cv.addSkills("programming (5)", "oo design (2)", "english (4)");
         assertEquals(2, cv.findSkillLevelByName("oo design"));
