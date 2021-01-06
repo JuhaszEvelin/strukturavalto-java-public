@@ -48,27 +48,32 @@ public class Cv {
 
     public int findSkillLevelByName(String skill) throws SkillNotFoundException {
 
+        int result = 0;
         for (Skill s : skills) {
-            try {
-                if (skill.equals(s.getName())){
-                    return s.getLevel();
-                } else throw new SkillNotFoundException();
-            } catch (Exception e){
-                System.out.println(" exception catched");
+
+            if (skill.equals(s.getName())) {
+                result = s.getLevel();
             }
         }
-        return 0;
+        if (result == 0) {
+            throw new SkillNotFoundException();
+        }
+
+        return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SkillNotFoundException {
         Cv cv1 = new Cv("John Doe");
         System.out.println("Assert: 0 , Result:" + cv1.getSkills().size());
         cv1.addSkills("programming (5)", "oo design (2)");
         System.out.println("Assert: 2, Result: " + cv1.getSkills().size());
         System.out.println("Assert: programming, Result:" + cv1.getSkills().get(0).getName());
         System.out.println("Assert: 5, Result: " + cv1.getSkills().get(0).getLevel());
-    }
 
+        Cv cv2 = new Cv("John Doe");
+        System.out.println(SkillNotFoundException.class + " " + cv2.findSkillLevelByName("programming"));
+
+    }
 
 
 }
